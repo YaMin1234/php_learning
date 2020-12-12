@@ -14,8 +14,8 @@
 </head>
 <body>
     <ul>
-        <?php foreach($names as $name):?>
-            <li><?= $name ?></li>
+        <?php foreach($persons as $key=>$value):?>
+            <li><?= $key."=>".$value ?></li>
         <?php endforeach; ?>
     </ul>
         
