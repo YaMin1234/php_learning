@@ -14,9 +14,11 @@
 </head>
 <body>
     <ul>
-        <?php foreach($persons as $key=>$value):?>
-            <li><?= $key."=>".$value ?></li>
-        <?php endforeach; ?>
+       <li>Task title is <?= $tasks['title']; ?></li>
+       <li>Task Due date is<?= $tasks['due']; ?></li>
+       <?php
+         echo $tasks['complete'] ? "Complete" : "Incomplete" ;
+       ?>
     </ul>
         
 
