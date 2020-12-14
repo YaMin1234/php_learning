@@ -1,9 +1,9 @@
 <?php
 
 require "core/functions.php";
+$config = require "database/config.php";
 require "core/database/Connection.php";
 require "core/database/QueryBuilder.php";
-$config = require "database/config.php";
 require "core/Router.php";
 require "core/Request.php";
 //$db = Connection::make();

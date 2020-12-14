@@ -5,16 +5,19 @@ class Router{
    // "about" => "controllers/AboutController.php",
     //"contact" => "controllers/ContactController.php"],
 
+   
+    public function register($routes)
+    {
+        $this->routes = $routes;
+    }
+
     public static function load($filename)
     {
         $router = new Router;
         require $filename;
         return $router;
     }
-    public function register($routes)
-    {
-        $this->routes = $routes;
-    }
+    
     public function direct($uri)
     {
       if(array_key_exists($uri,$this->routes))

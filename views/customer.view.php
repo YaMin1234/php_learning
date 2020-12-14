@@ -1,3 +1,3 @@
 <?php require "views/partials/heading.php" ?>
-    <h1>About Page</h1>
+    <h1>Customer</h1>
 <?php require "views/partials/footer.php" ?>
