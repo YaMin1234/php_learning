@@ -1,16 +1,32 @@
 <?php
 class Router{
-    protected $routes = [];
-    // ["" => "controllers/IndexController.php",
-   // "about" => "controllers/AboutController.php",
-    //"contact" => "controllers/ContactController.php"],
+    protected $routes = [
+      "GET"=>[
+        //"about"=>"contollers/...."
+      ],
+    "POST"=>[
+      //"name"=>"contollers/...."
+    ]//associative array, key=>uri,value=>controller
+               
+    ];
+   
+    
 
    
     public function register($routes)
     {
         $this->routes = $routes;
     }
+    
+    public function get($uri,$controller)
+    {
+       $this->routes['GET'][$uri] = $controller;
+    }
 
+    public function post($uri,$controller)
+    {
+       $this->routes['POST'][$uri] = $controller;
+    }
     public static function load($filename)
     {
         $router = new Router;
@@ -18,12 +34,13 @@ class Router{
         return $router;
     }
     
-    public function direct($uri)
+    public function direct($uri,$method)//about,GET or POST
     {
-      if(array_key_exists($uri,$this->routes))
+      if(array_key_exists($uri,$this->routes[$method]))
       {
-        return  $this->routes[$uri];//controllers/$uriController.php
+        return  $this->routes[$method][$uri];//controllers/$uriController.php
       }
+      die("404 Page");
     }
 }
 ?>
