@@ -30,6 +30,24 @@
    <input type="submit" value="Add New" class="btn">
 </form>
 
+<h1>Tasks Lists</h1>
+<ul>
+<?php foreach($tasks as $task):?>
+  <li>Description ~ <?= $task->description?></li>
+  <b>
+     <?php 
+          if($task->complete)  
+          {
+            echo "Complete";
+          }  
+          else{
+             echo "Incomplete" ;
+          }
+      ?>
+   </b>
+   
+   <?php endforeach;?>
+</ul>
 <script>
     function deleteRecord()
    {
