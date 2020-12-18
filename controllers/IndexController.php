@@ -1,6 +1,9 @@
 <?php
-$tasks = $query->selectAll("tasks");
-$users = $query->selectAll("users");
+// $tasks = $query->selectAll("tasks");
+// $users = $query->selectAll("users");
+
+$tasks = App::get("query")->selectAll("tasks");
+$users = App::get("query")->selectAll("users");
 
 view("index",[
     "users"=>$users,
