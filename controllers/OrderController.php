@@ -1,4 +1,0 @@
-<?php
-//database
-view("orders");
-?>

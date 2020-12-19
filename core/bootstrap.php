@@ -1,9 +1,7 @@
 <?php
 
-
-
-
 require "functions.php";
+
 App::bind("config",require "database/config.php");
 // $config = require "database/config.php";
 //configဆိုတဲ့ keyထဲမှာ config.phpကိုသိမ်း 

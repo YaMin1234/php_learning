@@ -2,10 +2,10 @@
 class Router{
     protected $routes = [
       "GET"=>[
-        //"about"=>"contollers/...."
+        
       ],
     "POST"=>[
-      //"name"=>"contollers/...."
+      
     ]//associative array, key=>uri,value=>controller
                
     ];
@@ -36,11 +36,22 @@ class Router{
     
     public function direct($uri,$method)//about,GET or POST
     {
-      if(array_key_exists($uri,$this->routes[$method]))
+      if(!array_key_exists($uri,$this->routes[$method]))
       {
-        return  $this->routes[$method][$uri];//controllers/$uriController.php
+        die("404 Page");
       }
-      die("404 Page");
+     
+      //dd($this->routes[$method][$uri])=>Pagescotroller@home
+      //dd(explode("@",$this->routes[$method][$uri]))=>၀င်လာတဲ့string @တွေ့တာနဲ့တစ်ပိုင်းဆီပိုင်းပြီး array တစ်ခုဖြစ်လာ 
+        $explosion = explode("@",$this->routes[$method][$uri]);
+        $this->callMethod($explosion[0],$explosion[1]);
+    }
+ 
+    public function callMethod($class,$method)
+    {
+      //dd($class)=>PagesController
+        $class = new $class;//overwrite=>$class = new PagesController;
+        $class->$method();
     }
 }
 ?>
